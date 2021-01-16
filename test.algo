@@ -12,8 +12,8 @@ BEGIN
         write ('ecrire une phrase qui se termine par un point:' ) ;
         read(phrase);
     UNTIL ('la phrase se termine par point');
-    i:=1;
-    j:=0;
+    i:=0;
+    j:=1;
     k:=0;
     WHILE (phrase[i] <> point) DO
     IF (phrase[i]= espace) THEN
@@ -24,7 +24,7 @@ BEGIN
     END_IF
         i:=i+1;
     END_WHILE
-    write('le nombre de caractères :', i) ;// afficher la longueur de la phrase
+    write('le nombre de caractères :', i+1) ;// afficher la longueur de la phrase
     write('le nombre de mots :', j) ;// afficher nombre de mots dans la phrase
     write('le nombre de voyelles :' k) ;// afficher nombre de voyelles dans la phrase
 END
