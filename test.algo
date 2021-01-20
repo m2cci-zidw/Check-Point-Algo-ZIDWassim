@@ -1,30 +1,21 @@
 ALGORITHM Compteur_phrase
 VAR
-    phrase :STRING; 
-    point = "."; // caractère qui marque la fin d'une phrase
-    espace =" " ;// caractère qui marque la fin d'un mot
-    i: INTEGER; // nbre de caracteres dans la phrase
-    j: INTEGER; // nbre de mots dans la phrase
-    k: INTEGER; // nbre de voyelles dans la phrase
+    ch :CHAR; 
+    nbc: INTEGER; // nbre de caracteres dans la phrase
+    nbw: INTEGER; // nbre de mots dans la phrase
+    nbv: INTEGER; // nbre de voyelles dans la phrase
 BEGIN
-    
     REPEAT
-        write ('ecrire une phrase qui se termine par un point:' ) ;
-        read(phrase);
-    UNTIL ('la phrase se termine par point');
-    i:=0;
-    j:=1;
-    k:=0;
-    WHILE (phrase[i] <> point) DO
-    IF (phrase[i]= espace) THEN
-        j:=j+1;
-    END_IF
-    IF (phrase[i]='a' ou phrase[i]='e'ou phrase[i]='i'ou phrase[i]='o'ou phrase[i]='u'ou phrase[i]='y') THEN
-        k:=k+1;
-    END_IF
-        i:=i+1;
-    END_WHILE
-    write('le nombre de caractères :', i+1) ;// afficher la longueur de la phrase
-    write('le nombre de mots :', j) ;// afficher nombre de mots dans la phrase
-    write('le nombre de voyelles :' k) ;// afficher nombre de voyelles dans la phrase
+        Write ('ecrire un caractères:' ch ) ;
+        Read(ch);
+        nbc=nbc+1;
+        IF ((ch=" ")) THEN
+            nbw=nbw+1;
+        ELSE IF (lowercase (ch) in ['a','e','i','o','u','y'])
+        nbv=nbv+1;
+        END_IF
+    UNTIL (ch=".");
+    Write('le nombre de caractères :', nbc) ;// afficher le nombre de caractères 
+    Write('le nombre de mots :', nbw+1) ;// afficher nombre de mots dans la phrase
+    Write('le nombre de voyelles :', nbv) ;// afficher nombre de voyelles dans la phrase
 END
